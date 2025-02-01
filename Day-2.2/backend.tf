@@ -1,7 +1,7 @@
-/*terraform {
+terraform {
   backend "s3" {
-    bucket = "mybucket"
+    bucket = "divya-s3-demo-xyz"
     key    = "divya/terraform.tfstate"
     region = "us-east-1"
   }
-}*/
+}
