@@ -7,3 +7,8 @@ resource "aws_instance" "divya" {
   ami = "ami-04b4f1a9cf54c11d0"
   subnet_id = "subnet-0e20f6f0099481c3c"
 }
+
+resource "aws_s3_bucket" "s3_bucket" {
+    bucket = "divya-s3-demo-xyz"
+  
+}
