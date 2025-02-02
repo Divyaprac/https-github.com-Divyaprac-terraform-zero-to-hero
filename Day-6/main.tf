@@ -6,6 +6,11 @@ variable "ami" {
   description = "value"
 }
 
+variable "subnet_id" {
+  description = "value"
+}
+
+
 variable "instance_type" {
   description = "value"
   type = map(string)
