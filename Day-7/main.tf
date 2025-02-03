@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 provider "vault" {
-  address = "54.196.138.151:8200"
+  address = "http://54.196.138.151:8200"
   skip_child_token = true
 
   auth_login {
@@ -17,17 +17,23 @@ provider "vault" {
   }
 }
 
-/*data "vault_kv_secret_v2" "example" {
-  mount = "secret" // change it according to your mount
-  name  = "test-secret" // change it according to your secret
+data "vault_kv_secret_v2" "example" {
+  mount = "kv" // change it according to your mount
+  name  = "test secret" // change it according to your secret
 }
 
-resource "aws_instance" "my_instance" {
-  ami           = "ami-053b0d53c279acc90"
+resource "aws_instance" "example" {
+  ami           = "ami-0c614dee691cbbf37"
   instance_type = "t2.micro"
 
   tags = {
-    Name = "test"
-    Secret = data.vault_kv_secret_v2.example.data["foo"]
+    Secret = data.vault_kv_secret_v2.example.data["username"]
   }
+}
+/*resource "vault_mount" "kvv2" {
+  path        = "kvv2"
+  type        = "kv"
+  options     = { version = "2" }
+  description = "KV Version 2 secret engine mount"
 }*/
+
